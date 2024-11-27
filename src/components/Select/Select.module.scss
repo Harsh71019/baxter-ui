@@ -1,0 +1,53 @@
+// Select.module.scss
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.label {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #333;
+    display: flex;
+    gap: 4px;
+}
+
+.required {
+    color: #ff0000;
+}
+
+.select {
+    height: 18px;
+    padding: 0 20px 0 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #333;
+    border: 1px solid #c5c5c5;
+    border-radius: 2px;
+    background-color: #fff;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='10' height='5' viewBox='0 0 10 5' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0L5 5L10 0H0Z' fill='%23333333'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 5px center;
+
+    &:hover {
+        border-color: #627782;
+    }
+
+    &:focus {
+        outline: none;
+        border-color: #627782;
+    }
+
+    &.error {
+        border-color: #ff0000;
+    }
+}
+
+.errorMessage {
+    color: #ff0000;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+}

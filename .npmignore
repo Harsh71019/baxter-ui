@@ -1,0 +1,22 @@
+# Development files
+src/
+tests/
+.storybook/
+scripts/
+
+# Config files
+.eslintrc
+.prettierrc
+.editorconfig
+tsconfig.json
+vite.config.ts
+
+# Git and CI
+.git/
+.github/
+.gitignore
+
+# Others
+node_modules/
+coverage/
+*.log
