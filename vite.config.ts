@@ -8,16 +8,13 @@ export default defineConfig({
     react(),
     dts({
       insertTypesEntry: true,
+      include: ['src'],
+      rollupTypes: true,
     }),
   ],
-  resolve: {
-    alias: {
-      '@': resolve(__dirname, 'src'),
-    },
-  },
   build: {
     lib: {
-      entry: resolve(__dirname, 'src/components/index.ts'),
+      entry: resolve(__dirname, 'src/index.ts'),
       name: 'MyComponentLib',
       formats: ['es', 'umd'],
       fileName: format => `index.${format}.js`,
@@ -29,7 +26,15 @@ export default defineConfig({
           react: 'React',
           'react-dom': 'ReactDOM',
         },
+        // Ensure CSS file is generated with a specific name
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name === 'style.css') return 'index.css';
+          return assetInfo.name || 'unknown';
+        },
       },
     },
+    // These ensure CSS is handled correctly
+    cssCodeSplit: false,
+    cssMinify: true,
   },
 });

@@ -1,6 +1,4 @@
-// Select.tsx
 import React from 'react';
-import styles from './Select.module.scss';
 
 export interface SelectOption {
   value: string;
@@ -32,15 +30,25 @@ export const Select: React.FC<SelectProps> = ({
   };
 
   return (
-    <div className={styles.container}>
+    <div className="bx-flex bx-flex-col bx-gap-1">
       {label && (
-        <label className={styles.label}>
-          {required && <span className={styles.required}>*</span>}
+        <label className="bx-flex bx-gap-1 bx-text-xs bx-font-arial bx-text-gray-700">
+          {required && <span className="bx-text-red-500">*</span>}
           {label}
         </label>
       )}
       <select
-        className={`${styles.select} ${error ? styles.error : ''} ${className || ''}`}
+        className={`
+          bx-h-[18px] bx-px-5 bx-py-0 
+          bx-text-xs bx-font-arial bx-text-gray-700
+          bx-border bx-border-gray-300 bx-rounded
+          bx-bg-white bx-cursor-pointer
+          bx-appearance-none
+          hover:bx-border-[#627782]
+          focus:bx-outline-none focus:bx-border-[#627782]
+          ${error ? 'bx-border-red-500' : ''}
+          ${className || ''}
+        `}
         onChange={handleChange}
         {...props}
       >
@@ -51,7 +59,7 @@ export const Select: React.FC<SelectProps> = ({
           </option>
         ))}
       </select>
-      {error && <span className={styles.errorMessage}>{error}</span>}
+      {error && <span className="bx-text-xs bx-text-red-500 bx-font-arial">{error}</span>}
     </div>
   );
 };
