@@ -10,12 +10,13 @@ export default defineConfig({
       insertTypesEntry: true,
       include: ['src'],
       rollupTypes: true,
+      copyDtsFiles: true,
     }),
   ],
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'MyComponentLib',
+      name: 'BaxterUI',
       formats: ['es', 'umd'],
       fileName: format => `index.${format}.js`,
     },

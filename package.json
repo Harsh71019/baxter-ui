@@ -14,7 +14,8 @@
     "./dist/style.css": "./dist/style.css"
   },
   "files": [
-    "dist"
+    "dist",
+    "configs"
   ],
   "peerDependencies": {
     "react": ">=16.8.0",

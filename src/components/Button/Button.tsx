@@ -14,16 +14,16 @@ export const Button: React.FC<ButtonProps> = ({
 }) => {
   const variantStyles = {
     primary: `
-      bx-bg-[#f4f4f4] 
-      bx-text-[#333]
-      hover:bx-bg-[#b9ced9]
-      hover:bx-border-[#627782]
+      bx-bg-button-primary-bg
+      bx-text-button-primary-text
+      hover:bx-bg-button-primary-hoverBg
+      hover:bx-border-button-primary-hoverBorder
     `,
     secondary: `
-      bx-bg-[#9e9e9e]
-      bx-text-white
-      hover:bx-bg-[#8e8e8e]
-      hover:bx-border-[#627782]
+      bx-bg-button-secondary-bg
+      bx-text-button-secondary-text
+      hover:bx-bg-button-secondary-hoverBg
+      hover:bx-border-button-secondary-hoverBorder
     `,
   };
 
@@ -32,16 +32,16 @@ export const Button: React.FC<ButtonProps> = ({
       className={`
         bx-cursor-pointer 
         bx-w-auto 
-        bx-border 
-        bx-border-[#c5c5c5] 
-        bx-text-xs 
-        bx-font-arial 
-        bx-h-[18px] 
-        bx-min-w-[70px] 
-        bx-px-[15px] 
-        bx-py-0 
-        bx-text-center 
-        bx-overflow-visible 
+        bx-border
+        bx-border-button-${variant}-border
+        bx-text-btn
+        bx-font-arial
+        bx-h-18
+        bx-min-w-70
+        bx-px-[15px]
+        bx-py-0
+        bx-text-center
+        bx-overflow-visible
         bx-box-content
         ${variantStyles[variant]}
         ${className || ''}
