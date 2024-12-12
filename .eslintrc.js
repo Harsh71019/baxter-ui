@@ -10,6 +10,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:prettier/recommended',
+    'plugin:tailwindcss/recommended',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -26,10 +27,15 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'error',
     '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
     'react/prop-types': 'off',
+    'tailwindcss/classnames-order': 'error',
+    'tailwindcss/no-custom-classname': 'off',
   },
   settings: {
     react: {
       version: 'detect',
+    },
+    tailwindcss: {
+      config: './tailwind.config.js',
     },
   },
 };

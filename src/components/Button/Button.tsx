@@ -1,4 +1,3 @@
-// Button.tsx
 import React from 'react';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -14,38 +13,22 @@ export const Button: React.FC<ButtonProps> = ({
 }) => {
   const variantStyles = {
     primary: `
-      bx-bg-button-primary-bg
-      bx-text-button-primary-text
-      hover:bx-bg-button-primary-hoverBg
-      hover:bx-border-button-primary-hoverBorder
+      bg-button-primary-bg
+      text-button-primary-text
+      hover:bg-button-primary-hoverBg
+      hover:border-button-primary-hoverBorder
     `,
     secondary: `
-      bx-bg-button-secondary-bg
-      bx-text-button-secondary-text
-      hover:bx-bg-button-secondary-hoverBg
-      hover:bx-border-button-secondary-hoverBorder
+      bg-button-secondary-bg
+      text-button-secondary-text
+      hover:bg-button-secondary-hoverBg
+      hover:border-button-secondary-hoverBorder
     `,
   };
 
   return (
     <button
-      className={`
-        bx-cursor-pointer 
-        bx-w-auto 
-        bx-border
-        bx-border-button-${variant}-border
-        bx-text-btn
-        bx-font-arial
-        bx-h-18
-        bx-min-w-70
-        bx-px-[15px]
-        bx-py-0
-        bx-text-center
-        bx-overflow-visible
-        bx-box-content
-        ${variantStyles[variant]}
-        ${className || ''}
-      `}
+      className={`cursor-pointer w-auto border border-button-${variant}-border text-btn font-arial h-18 min-w-70 px-[15px] py-0 text-center overflow-visible box-content ${variantStyles[variant]} ${className || ''} `}
       {...props}
     >
       {children}
