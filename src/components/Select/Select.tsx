@@ -20,7 +20,6 @@ export const Select: React.FC<SelectProps> = ({
   options,
   required,
   onChange,
-  error,
   placeholder = 'Select',
   className,
   ...props
@@ -32,23 +31,15 @@ export const Select: React.FC<SelectProps> = ({
   return (
     <div className="flex flex-col gap-1">
       {label && (
-        <label className="flex gap-1 text-xs font-arial text-gray-700">
-          {required && <span className="text-red-500">*</span>}
+        <label
+          className={`flex gap-1 text-xs font-arial text-black ${required ? 'font-bold' : ''}`}
+        >
+          {required && <span className="font-bold text-red-black">*</span>}
           {label}
         </label>
       )}
       <select
-        className={`
-          h-[18px] px-5 py-0 
-          text-xs font-arial text-gray-700
-          border border-gray-300 rounded
-          bg-white cursor-pointer
-          appearance-none
-          hover:border-[#627782]
-          focus:outline-none focus:border-[#627782]
-          ${error ? 'border-red-500' : ''}
-          ${className || ''}
-        `}
+        className={`w-[240px] h-[22px] p-[1px] m-[1px] text-xs font-arial text-black border border-[#c5c5c5] bg-white cursor-pointer focus:outline-none focus:border-[#000] focus:rounded focus:border-2 ${className || ''} `}
         onChange={handleChange}
         {...props}
       >
@@ -59,7 +50,6 @@ export const Select: React.FC<SelectProps> = ({
           </option>
         ))}
       </select>
-      {error && <span className="text-xs text-red-500 font-arial">{error}</span>}
     </div>
   );
 };
