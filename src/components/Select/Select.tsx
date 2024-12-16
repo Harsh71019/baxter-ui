@@ -30,23 +30,23 @@ export const Select: React.FC<SelectProps> = ({
   };
 
   return (
-    <div className="bx-flex bx-flex-col bx-gap-1">
+    <div className="flex flex-col gap-1">
       {label && (
-        <label className="bx-flex bx-gap-1 bx-text-xs bx-font-arial bx-text-gray-700">
-          {required && <span className="bx-text-red-500">*</span>}
+        <label className="flex gap-1 text-xs font-arial text-gray-700">
+          {required && <span className="text-red-500">*</span>}
           {label}
         </label>
       )}
       <select
         className={`
-          bx-h-[18px] bx-px-5 bx-py-0 
-          bx-text-xs bx-font-arial bx-text-gray-700
-          bx-border bx-border-gray-300 bx-rounded
-          bx-bg-white bx-cursor-pointer
-          bx-appearance-none
-          hover:bx-border-[#627782]
-          focus:bx-outline-none focus:bx-border-[#627782]
-          ${error ? 'bx-border-red-500' : ''}
+          h-[18px] px-5 py-0 
+          text-xs font-arial text-gray-700
+          border border-gray-300 rounded
+          bg-white cursor-pointer
+          appearance-none
+          hover:border-[#627782]
+          focus:outline-none focus:border-[#627782]
+          ${error ? 'border-red-500' : ''}
           ${className || ''}
         `}
         onChange={handleChange}
@@ -59,7 +59,7 @@ export const Select: React.FC<SelectProps> = ({
           </option>
         ))}
       </select>
-      {error && <span className="bx-text-xs bx-text-red-500 bx-font-arial">{error}</span>}
+      {error && <span className="text-xs text-red-500 font-arial">{error}</span>}
     </div>
   );
 };
