@@ -3,6 +3,16 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        blue: {
+          50: '#E0E9F2',
+          100: '#6C8CB3',
+          200: '#295DA7',
+          300: '#0033FF',
+          400: '#6C80A3',
+          500: '#305C83',
+          600: '#2B477D',
+          700: '#006CFF',
+        },
         button: {
           primary: {
             bg: '#d4d4d4',
