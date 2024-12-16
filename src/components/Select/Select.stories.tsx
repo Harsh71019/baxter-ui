@@ -22,7 +22,7 @@ type Story = StoryObj<typeof Select>;
 
 export const Default: Story = {
   args: {
-    placeholder: 'Select',
+    placeholder: 'All',
   },
 };
 
