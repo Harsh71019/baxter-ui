@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 
 export interface InputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange'> {
@@ -23,12 +23,15 @@ export const Input: React.FC<InputProps> = ({
 }) => {
   const [localError, setLocalError] = useState<string | undefined>(error);
 
-  const actualRegex = typeof regex === 'string' ? new RegExp(regex) : regex;
+
+  const regexExp = useMemo(() => {
+    return typeof regex === 'string' ? new RegExp(regex) : regex;
+  }, [regex]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
 
-    if (actualRegex && !actualRegex.test(value)) {
+    if (regexExp && !regexExp.test(value)) {
       setLocalError('Invalid input');
     } else {
       setLocalError(undefined);
@@ -36,7 +39,6 @@ export const Input: React.FC<InputProps> = ({
 
     onChange?.(value);
   };
-
 
   return (
     <div
