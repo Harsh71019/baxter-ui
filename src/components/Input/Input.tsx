@@ -19,10 +19,10 @@ export const Input: React.FC<InputProps> = ({
   onChange,
   error,
   className,
+  disabled = false,
   ...props
 }) => {
   const [localError, setLocalError] = useState<string | undefined>(error);
-
 
   const regexExp = useMemo(() => {
     return typeof regex === 'string' ? new RegExp(regex) : regex;
@@ -42,31 +42,32 @@ export const Input: React.FC<InputProps> = ({
 
   return (
     <div
-      className={`bx-flex ${
-        labelPosition === 'left' ? 'bx-flex-row bx-gap-2' : 'bx-flex-col bx-gap-1'
+      className={`flex ${
+        labelPosition === 'left' ? 'flex-row gap-2' : 'flex-col gap-1'
       }`}
     >
       {label && (
-        <label className="bx-text-xs bx-font-arial bx-text-gray-700">
-          {required && <span className="bx-text-red-500">*</span>}
+        <label className={`font-bold flex gap-1 text-xs font-arial text-black`}>
+          {required && <span className="font-bold">*</span>}
           {label}
         </label>
       )}
       <input
         className={`
-          bx-h-[18px] bx-px-2 bx-text-xs bx-font-arial bx-text-gray-700
-          bx-border bx-border-gray-300 bx-rounded
-          bx-bg-white bx-appearance-none
-          hover:bx-border-[#627782]
-          focus:bx-outline-none focus:bx-border-[#627782]
-          ${localError ? 'bx-border-red-500' : ''}
+          w-[240px] h-[22px] px-2 text-xs font-arial text-black
+          border border-border-50 bg-white cursor-pointer
+          focus:outline-none focus:border-border-100 focus:rounded focus:border-2
+          focus:bg-yellow-50
+          ${disabled ? 'bg-border-50 cursor-not-allowed' : ''}
+          ${localError ? 'border-red-500' : ''}
           ${className || ''}
         `}
         onChange={handleChange}
+        disabled={disabled}
         {...props}
       />
       {(localError || error) && (
-        <span className="bx-text-xs bx-text-red-500 bx-font-arial">
+        <span className="text-xs text-red-500 font-arial">
           {localError || error}
         </span>
       )}

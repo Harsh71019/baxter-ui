@@ -3,6 +3,9 @@ import React, { useState, FC } from 'react';
 export interface TabItem {
   text: string;
   comp: React.ReactNode;
+  id?: string;
+  onClick?: (index: number) => void;
+  disabled?: boolean;
 }
 
 export interface TabsProps {
@@ -13,47 +16,56 @@ const Tabs: FC<TabsProps> = ({ tabs }) => {
   const [activeTab, setActiveTab] = useState<number>(0);
 
   const containerStyles = `
-    bx-mt-4
-    bx-border
-    bx-border-button-secondary-borderColorNew
-    bx-rounded-b-[3px]
+    mt-4
+    border
+    border-button-secondary-borderColorNew
+    rounded-b-[3px]
   `;
 
   const headerStyles = `
-    bx-border-button-secondary-boxHeaderColor
-    bx-min-h-[20px]
-    bx-text-[12px]
-    bx-text-white
+    border-button-secondary-boxHeaderColor
+    min-h-[20px]
+    text-[12px]
+    text-white
   `;
 
   const horizontalSeparatorStyles = `
-    bx-border-t
-    bx-border-gray-300
+    border-t
+    border-gray-300
   `;
 
   const contentContainerStyles = `
-    bx-m-4
+    m-4
   `;
+
+  const handleTabClick = (index: number, customOnClick?: (index: number) => void) => {
+    if (!tabs[index].disabled) {
+      setActiveTab(index);
+      if (customOnClick) customOnClick(index);
+    }
+  };
 
   return (
     <div className={containerStyles}>
       {tabs.map((item, index) => (
         <button
-          key={index}
+          key={item.id || index}
+          id={item.id}
           className={`
-            bx-py-2
-            bx-px-4
-            bx-border-x
-            bx-border-t
-            bx-rounded-t-lg
-            bx-mt-4
-            bx-ml-2
-            bx-mr-2
+            py-2
+            px-4
+            border-x
+            border-t
+            rounded-t-lg
+            mt-4
+            ml-2
+            mr-2
             ${activeTab === index
-              ? 'bx-bg-white bx-text-black bx-border-button-secondary-activeTabBorder bx-font-bold'
-              : 'bx-bg-white bx-border-gray-300'}
+              ? 'bg-white text-black border-button-secondary-activeTabBorder font-bold'
+              : 'bg-white border-gray-300'}
+            ${item.disabled ? 'opacity-50 cursor-not-allowed' : ''}
           `}
-          onClick={() => setActiveTab(index)}
+          onClick={() => handleTabClick(index, item.onClick)}
         >
           {item.text}
         </button>
