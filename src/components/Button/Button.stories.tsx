@@ -46,7 +46,7 @@ type Story = StoryObj<typeof Button>;
 
 export const Primary: Story = {
   args: {
-    children: 'Cancel',
+    children: 'Filter',
     variant: 'primary',
   },
   parameters: {
