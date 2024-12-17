@@ -19,6 +19,7 @@ module.exports = {
         border:{
           50:'#c5c5c5',
           100:'#000',
+          200:'#999',
         },
         button: {
           primary: {
@@ -27,9 +28,6 @@ module.exports = {
             hoverBg: '#b9ced9',
             border: '#C5C5C5',
             hoverBorder: '#627782',
-            borderColorNew: '#999',
-            activeTabBorder: '#042f2e',
-            boxHeaderColor: '#6C8CB3',
           },
           secondary: {
             bg: '#9e9e9e',

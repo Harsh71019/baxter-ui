@@ -18,12 +18,12 @@ const Tabs: FC<TabsProps> = ({ tabs }) => {
   const containerStyles = `
     mt-4
     border
-    border-button-secondary-borderColorNew
+    border-border-200
     rounded-b-[3px]
   `;
 
   const headerStyles = `
-    border-button-secondary-boxHeaderColor
+    border-blue-100
     min-h-[20px]
     text-[12px]
     text-white
