@@ -3,77 +3,91 @@ import React, { useState, FC } from 'react';
 export interface TabItem {
   text: string;
   comp: React.ReactNode;
-  id?: string;
-  onClick?: (index: number) => void;
+  id: string;
+  onClick?: (id: string) => void;
   disabled?: boolean;
 }
 
 export interface TabsProps {
   tabs: TabItem[];
+  defaultActiveId?: string;
 }
 
-const Tabs: FC<TabsProps> = ({ tabs }) => {
-  const [activeTab, setActiveTab] = useState<number>(0);
+const Tabs: FC<TabsProps> = ({ tabs, defaultActiveId }) => {
+  const [activeTabId, setActiveTabId] = useState<string>(defaultActiveId || tabs[0]?.id);
 
   const containerStyles = `
-    mt-4
     border
+    border-solid
     border-border-200
-    rounded-b-[3px]
+    rounded-b
+    border-t-0
+  `;
+
+  const tabButtonStyles = `
+    py-1
+    px-2
+    border-x
+    border-t
+    rounded-t-lg
+    mr-2
   `;
 
   const headerStyles = `
-    border-blue-100
+    bg-blue-100
     min-h-[20px]
+    leading-[20px]
     text-[12px]
     text-white
+    px-5
   `;
 
-  const horizontalSeparatorStyles = `
-    border-t
-    border-gray-300
+  const footerStyles = `
+    bg-blue-100
+    min-h-[4px]
+    leading-[4px]
+    text-[12px]
+    text-white
+    px-5
   `;
 
   const contentContainerStyles = `
     m-4
   `;
 
-  const handleTabClick = (index: number, customOnClick?: (index: number) => void) => {
-    if (!tabs[index].disabled) {
-      setActiveTab(index);
-      if (customOnClick) customOnClick(index);
+  const handleTabClick = (id: string, customOnClick?: (id: string) => void) => {
+    const selectedTab = tabs.find(tab => tab.id === id);
+    if (selectedTab && !selectedTab.disabled) {
+      setActiveTabId(id);
+      if (customOnClick) customOnClick(id);
     }
   };
 
   return (
-    <div className={containerStyles}>
-      {tabs.map((item, index) => (
+    <div>
+      {tabs.map(item => (
         <button
-          key={item.id || index}
+          key={item.id}
           id={item.id}
-          className={`
-            py-2
-            px-4
-            border-x
-            border-t
-            rounded-t-lg
-            mt-4
-            ml-2
-            mr-2
-            ${activeTab === index
-              ? 'bg-white text-black border-button-secondary-activeTabBorder font-bold'
-              : 'bg-white border-gray-300'}
-            ${item.disabled ? 'opacity-50 cursor-not-allowed' : ''}
-          `}
-          onClick={() => handleTabClick(index, item.onClick)}
+          className={` ${tabButtonStyles} ${
+            activeTabId === item.id
+              ? 'border-border-200 bg-white font-bold text-black'
+              : 'border-gray-500 bg-white'
+          } ${item.disabled ? 'cursor-not-allowed opacity-50' : ''} `}
+          onClick={() => handleTabClick(item.id, item.onClick)}
         >
           {item.text}
         </button>
       ))}
-      <div className={horizontalSeparatorStyles}></div>
-      <div className={headerStyles}></div>
-      <div className={contentContainerStyles}>
-        {tabs[activeTab].comp}
+
+      <div className={containerStyles}>
+        <div className={headerStyles}></div>
+
+        <div className={contentContainerStyles}>
+          {tabs.find(tab => tab.id === activeTabId)?.comp}
+        </div>
+
+        <div className={footerStyles}></div>
       </div>
     </div>
   );
