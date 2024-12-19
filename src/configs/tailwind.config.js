@@ -13,6 +13,14 @@ module.exports = {
           600: '#2B477D',
           700: '#006CFF',
         },
+        yellow:{
+          50:'#FFFACD'
+        },
+        border:{
+          50:'#c5c5c5',
+          100:'#000',
+          200:'#999',
+        },
         button: {
           primary: {
             bg: '#d4d4d4',
