@@ -19,17 +19,18 @@ const Accordion: FC<AccordionProps> = ({ items, defaultOpenId }) => {
   };
 
   return (
+
     <div className="w-full border border-gray-200">
       {items.map((item) => (
         <div key={item.id} className="last:border-none">
           <h2 className="accordion-header">
             <button
               onClick={() => toggleItem(item.id)}
-              className={`w-full text-left px-2 py-1 font-small transition-colors duration-300
+              className={`w-full text-left px-1 py-2 text-xs font-bold transition-colors duration-300
                 ${
                   openItemId === item.id
                     ? 'bg-blue-100 text-white'
-                    : 'text-blue-100 bg-white hover:bg-blue-100 hover:text-white'
+                    : 'text-blue-100 bg-blue-800 hover:bg-blue-100 hover:text-white'
                 }`}
             >
               {item.title}
