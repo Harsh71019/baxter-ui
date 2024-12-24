@@ -1,3 +1,54 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.react-datepicker__day-names {
+  @apply bg-blue-400 text-white font-bold text-center mb-[-2px] mt-1;
+  white-space: nowrap;
+}
+
+.react-datepicker__month-container {
+  @apply float-left;
+  background: linear-gradient(0deg, #eeeeee, #eeeeee) !important;
+}
+
+.react-datepicker__header:not(.react-datepicker__header--has-time-select) {
+  @apply rounded-tr-none;
+}
+
+.react-datepicker {
+  @apply rounded-none !important;
+}
+
+.react-datepicker__day-name,
+.react-datepicker__day,
+.react-datepicker__time-name {
+  @apply w-[2em] leading-6 m-[0.15rem] !important;
+}
+
+.custom-datepicker-popper .react-datepicker__triangle {
+  @apply hidden m-0 p-0;
+}
+
+.custom-datepicker-popper {
+  @apply absolute top-full left-0;
+  transform: translateY(-1px);
+  @apply mt-0 !important;
+}
+
+.react-datepicker__day-name {
+  @apply text-xs !important;
+}
+
+h2.react-datepicker__current-month {
+  @apply p-0 m-0 text-xs text-black !important;
+}
+
+.custom-datepicker-popper {
+  @apply relative top-full left-0 transform-none m-0 p-0 !important;
+}
+
+
+
+
+

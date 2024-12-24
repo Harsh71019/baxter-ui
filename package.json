@@ -39,6 +39,7 @@
   "dependencies": {
     "@storybook/builder-vite": "^8.4.5",
     "react": ">=16.8.0",
+    "react-datepicker": "^7.5.0",
     "react-dom": ">=16.8.0",
     "sass": "^1.81.0",
     "vite-plugin-dts": "^4.3.0"
