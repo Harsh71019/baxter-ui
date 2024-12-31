@@ -47,6 +47,21 @@ h2.react-datepicker__current-month {
 .custom-datepicker-popper {
   @apply relative top-full left-0 transform-none m-0 p-0 !important;
 }
+  .modal-button {
+    @apply min-h-5
+    font-arial font-bold cursor-pointer border-solid
+    border-button-primary-border border-[1px] rounded-[3px]
+    text-btn font-arial h-18 min-w-20 px-[15px] py-0 text-center
+    overflow-visible box-content
+    hover:bg-modal-button-hoverbg hover:border-modal-button-hoverBorder;
+    background:url("https://dev-923.sharesource.com/NH-CoreDeviceManagement-Portlet/css/images/ui-bg_glass_100_f6f6f6_1x400.png") repeat-x scroll 0 0 #fdf5ce
+
+  }
+  .modal-button:hover {
+    background: url("https://dev-923.sharesource.com/NH-CoreDeviceManagement-Portlet/css/images/ui-bg_glass_100_fdf5ce_1x400.png") repeat-x scroll 0 0 #fdf5ce;
+  }
+
+
 
 
 

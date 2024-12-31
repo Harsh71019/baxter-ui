@@ -38,6 +38,16 @@ module.exports = {
             hoverBorder: '#627782',
           },
         },
+        modal:{
+          text:"#333",
+          border:"#999999",
+          headerbg:"#CCC",
+          bg:"#eeeeee",
+          button:{
+            hoverbg:"#fdf5ce",
+            hoverBorder:"#fbcb09"
+          }
+        }
       },
       spacing: {
         18: '18px',
